@@ -1,0 +1,25 @@
+import { Link } from 'react-router-dom'
+
+export interface MyRoute {
+    route: string
+    name: string
+}
+
+interface NavProps {
+    routes: MyRoute[]
+}
+
+export function Nav({ routes }: NavProps) {
+    return (
+        <nav className="nav">
+            <img src="/src/assets/" alt="Logo" />
+            <ul className="nav__list">
+                {routes.map((route: MyRoute, key: number) => (
+                    <Link key={key} to={route.route} className="nav__link">
+                        {route.name}
+                    </Link>
+                ))}
+            </ul>
+        </nav>
+    )
+}
