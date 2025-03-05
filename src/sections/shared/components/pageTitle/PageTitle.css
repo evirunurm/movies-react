@@ -1,0 +1,7 @@
+@layer components.pageTitle {
+    .page-title {
+        font-size: 4rem;
+        font-weight: 600;
+        margin: 0;
+    }
+}

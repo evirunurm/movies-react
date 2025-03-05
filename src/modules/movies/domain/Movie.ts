@@ -4,4 +4,5 @@ export interface Movie {
     releaseDate: Date
     popularity: number
     rating: number
+    img: string
 }

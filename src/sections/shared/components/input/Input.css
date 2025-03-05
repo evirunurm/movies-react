@@ -1,0 +1,11 @@
+@layer components {
+    .input {
+        background-color: var(--grey-900);
+        border: 1px solid var(--grey-700);
+        padding: 1rem 1rem; /* This is actually 0.75rem 1rem, but there's an extra element in input iner content that makes it bigger. */
+        border-radius: 0.75rem;
+        width: 344px;
+        font-size: 0.85rem;
+        color: var(--grey-600);
+    }
+}

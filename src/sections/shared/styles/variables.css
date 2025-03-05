@@ -1,0 +1,11 @@
+@layer variables {
+    :root {
+        --grey-900: #121829;
+        --grey-700: #323B54;
+        --grey-600: #475069;
+        --grey-400: #767E94;
+        --grey-50: #EBEEF5;
+        --card-o-80: #20283ECC;
+        --black-o-65: #000000A6;
+    }
+}

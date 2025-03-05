@@ -1,0 +1,19 @@
+@layer scomponents.section {
+    .section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .section__title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 0;
+            color: var(--grey-400)
+        }
+
+        .section__amount-elements {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+    }
+}

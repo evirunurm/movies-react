@@ -1,0 +1,8 @@
+@layer components.cardList {
+    .card-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        background-color: var(--grey-900);
+    }
+}
