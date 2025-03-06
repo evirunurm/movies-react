@@ -3,6 +3,6 @@
         display: flex;
         flex-wrap: wrap;
         gap: 2rem;
-        background-color: var(--grey-900);
+        background-color: var(--color-grey-900);
     }
 }
