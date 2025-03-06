@@ -16,13 +16,24 @@
         display: flex;
         position: relative;
 
-        .card__heart {
+        .card__heart, .card__rating {
+            margin: 0;
+            font-weight: 300;
+            color: var(--color-warning-500);
             position: absolute;
-            bottom: 0.5rem;
-            right: 0.5rem;
             background-color: var(--color-black-o-65);
             padding: 0.25rem 0.5rem;
             border-radius: 0.5rem;
+        }
+
+        .card__rating {
+            top: 0.5rem;
+            left: 0.5rem;
+        }
+
+        .card__heart {
+            bottom: 0.5rem;
+            right: 0.5rem;
         }
 
         img {
