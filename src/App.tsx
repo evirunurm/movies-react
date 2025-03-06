@@ -1,10 +1,10 @@
+import React from 'react'
 import { createApiMovieRepository } from './modules/movies/infrastructure/ApiMovieRepository.ts'
 import { MovieRepository } from './modules/movies/domain/MovieRepository.ts'
 import { MoviesContextProvider } from './sections/movies/popularMovies/MoviesContext.tsx'
 import { PopularMovies } from './sections/movies/popularMovies/PopularMovies.tsx'
 import { Nav, MyRoute } from './sections/shared/components/nav/Nav.tsx'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router'
 
 // ComponentRoute has all properties from MyRoute and adds the component property
 interface ComponentRoute extends MyRoute {

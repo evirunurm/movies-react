@@ -5,10 +5,12 @@
         --color-grey-700: #323B54;
         --color-grey-600: #475069;
         --color-grey-400: #767E94;
+        --color-grey-200: #A8AEBF;
         --color-grey-50: #EBEEF5;
-        --color-card-o-80: #20283ECC;
         --color-black-o-65: #000000A6;
+        --color-warning-400: #FFBD6D;
 
+        --color-card-o-80: #20283ECC;
         /** Spacing */
         --space-pad-100: 7.5rem;
     }

@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
 import './Nav.css'
+import { NavLink } from 'react-router'
+import classNames from 'classnames'
 
 export interface MyRoute {
     route: string
@@ -16,9 +17,17 @@ export function Nav({ routes }: NavProps) {
             <img src="/src/assets/logo.png" alt="Logo" />
             <ul className="nav__list">
                 {routes.map((route: MyRoute, key: number) => (
-                    <Link key={key} to={route.route} className="nav__link">
+                    <NavLink
+                        key={key}
+                        to={route.route}
+                        className={({ isActive }) =>
+                            classNames('nav__link', {
+                                'nav__link--active': isActive,
+                            })
+                        }
+                    >
                         {route.name}
-                    </Link>
+                    </NavLink>
                 ))}
             </ul>
         </nav>
