@@ -1,10 +1,10 @@
-import { Movie } from '../../../../modules/movies/domain/Movie.ts'
+import { MovieView } from '../../../../modules/movies/domain/MovieView.ts'
 import { render } from '@testing-library/react'
 import { MovieCardList } from './MovieCardList.tsx'
 
-describe('Movie Card List', () => {
+describe('MovieView MovieCard List', () => {
     it('should render movies', () => {
-        const movies: Movie[] = [
+        const movies: MovieView[] = [
             {
                 id: 1,
                 title: 'Inception',
@@ -12,7 +12,7 @@ describe('Movie Card List', () => {
                 img: 'inception.jpg',
                 releaseDate: new Date(),
                 popularity: 5,
-            } as Movie,
+            } as MovieView,
         ]
 
         const { getByText, getByAltText } = render(

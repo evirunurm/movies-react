@@ -1,5 +1,6 @@
 import { render } from '../../../../../test/utils.ts'
 import { MyRoute, Nav } from './Nav.tsx'
+import { userEvent } from '@testing-library/user-event'
 
 describe('Nav', () => {
     it('should render routes', () => {
@@ -16,11 +17,7 @@ describe('Nav', () => {
         expect(homeLink).toBeInTheDocument()
         expect(homeLink).toHaveAttribute('href', '/')
 
-        const clickEvent = new MouseEvent('click', {
-            bubbles: true,
-            cancelable: true,
-        })
-        homeLink.dispatchEvent(clickEvent)
+        userEvent.click(homeLink)
         expect(homeLink).toHaveClass('nav__link--active')
     })
 })

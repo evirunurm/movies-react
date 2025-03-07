@@ -1,12 +1,7 @@
-import { Movie } from './Movie.ts'
-
-interface Pagination {
-    page: number
-    perPage: number
-    total: number
-}
+import { MovieView } from './MovieView.ts'
+import { Pagination } from './Pagination.ts'
 
 export interface MoviesView {
-    data: Movie[]
+    data: MovieView[]
     pagination: Pagination
 }

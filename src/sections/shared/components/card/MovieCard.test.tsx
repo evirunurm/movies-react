@@ -1,6 +1,6 @@
-import { Movie } from '../../../../modules/movies/domain/Movie.ts'
 import { render } from '@testing-library/react'
-import { Card } from './Card.tsx'
+import { MovieCard } from './MovieCard.tsx'
+import { Movie } from '../../../../modules/movies/domain/Movie.ts'
 
 describe('Card', () => {
     it('should render movie details', () => {
@@ -13,7 +13,7 @@ describe('Card', () => {
             popularity: 5,
         }
 
-        const { getByText, getByAltText } = render(<Card movie={movie} />)
+        const { getByText, getByAltText } = render(<MovieCard movie={movie} />)
 
         expect(getByText('Inception')).toBeInTheDocument()
         expect(getByText('☆ 5')).toBeInTheDocument()

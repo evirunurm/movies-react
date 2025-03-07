@@ -5,9 +5,9 @@ import { Main } from '../../shared/components/main/Main.tsx'
 import { PageTitle } from '../../shared/components/pageTitle/PageTitle.tsx'
 import { IntersectionAlert } from '../../shared/components/intersectionAlert/IntersectionAlert.tsx'
 import { useCallback, useEffect, useState } from 'react'
-import { Movie } from '../../../modules/movies/domain/Movie.ts'
 import { getPopularMovies } from '../../../modules/movies/application/getPopular/getPopularMovies.ts'
 import { MovieRepository } from '../../../modules/movies/domain/MovieRepository.ts'
+import { Movie } from '../../../modules/movies/domain/Movie.ts'
 
 interface PopularMoviesProps {
     repository: MovieRepository
@@ -25,8 +25,19 @@ export function PopularMovies({ repository }: PopularMoviesProps) {
             repository,
             amountMoviesToFetch
         )
+        setMovies(popularMovies.data.map(mapMovieAddingFavoriteAction))
         setTotalMovies(popularMovies.pagination?.total)
-        setMovies(popularMovies.data)
+    }
+
+    const onHeartClick = async (movieId: number) => {
+        await repository.postPopular(movieId, 1)
+    }
+
+    const mapMovieAddingFavoriteAction = (movie: Movie) => {
+        movie.onFavoriteClick = async () => {
+            await onHeartClick(movie.id)
+        }
+        return movie
     }
 
     const areThereMoreMoviesToLoad = movies.length < totalMovies
@@ -44,11 +55,11 @@ export function PopularMovies({ repository }: PopularMoviesProps) {
     )
 
     useEffect(() => {
-        setIsLoading(true)
         const loadMovies = async () => {
             await fetchPopularMovies()
             setIsLoading(false)
         }
+        setIsLoading(true)
         loadMovies().catch((error) =>
             console.error('Error loading movies', error)
         )

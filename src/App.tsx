@@ -1,7 +1,7 @@
 import React from 'react'
 import { createApiMovieRepository } from './modules/movies/infrastructure/ApiMovieRepository.ts'
 import { MovieRepository } from './modules/movies/domain/MovieRepository.ts'
-import { PopularMovies } from './sections/movies/popularMovies/PopularMovies.tsx'
+import { PopularMovies } from './sections/movies/popular/PopularMovies.tsx'
 import { Nav, MyRoute } from './sections/shared/components/nav/Nav.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router'
 
