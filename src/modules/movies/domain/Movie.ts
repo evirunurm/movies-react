@@ -6,4 +6,5 @@ export interface Movie {
     rating: number
     img: string
     onFavoriteClick?: () => void
+    isFavorite?: boolean
 }

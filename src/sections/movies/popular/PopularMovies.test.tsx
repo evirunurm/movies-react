@@ -44,13 +44,28 @@ describe('Popular Movies', () => {
     it('should allow add movies to favorites', async () => {
         repository.postPopular = vi.fn()
 
-        const { getByText } = render(<PopularMovies repository={repository} />)
+        const { getByLabelText, queryByLabelText } = render(
+            <PopularMovies repository={repository} />
+        )
 
-        await waitFor(() => {
-            const heart = getByText('♥')
-            expect(heart).toBeInTheDocument()
-            userEvent.click(heart)
+        await waitFor(async () => {
+            const heartButton = getByLabelText('Add to favorites')
+            let nonFavoriteIcon = queryByLabelText('Not favorite')
+            let favoriteIcon = queryByLabelText('Favorite')
+
+            // Check that the heart button is rendered with the correct icon
+            expect(nonFavoriteIcon).toBeInTheDocument()
+            expect(favoriteIcon).toBeNull()
+
+            // Check that the postPopular method is called when the heart button is clicked
+            await userEvent.click(heartButton)
             expect(repository.postPopular).toHaveBeenCalled()
+
+            // Check that the heart button is rendered with the correct icon after clicking
+            nonFavoriteIcon = queryByLabelText('Not favorite')
+            favoriteIcon = queryByLabelText('Favorite')
+            expect(nonFavoriteIcon).toBeNull()
+            expect(favoriteIcon).toBeInTheDocument()
         })
     })
 })

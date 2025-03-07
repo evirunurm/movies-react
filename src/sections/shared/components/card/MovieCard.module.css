@@ -17,6 +17,8 @@
         position: relative;
 
         .card__heart, .card__rating {
+            display: flex;
+            align-items: center;
             margin: 0;
             font-weight: 300;
             color: var(--color-warning-500);

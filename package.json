@@ -12,6 +12,7 @@
     "test:watch": "vitest --watch"
   },
   "dependencies": {
+    "@tabler/icons-react": "^3.31.0",
     "classnames": "^2.5.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

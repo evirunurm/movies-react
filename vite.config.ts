@@ -3,6 +3,12 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
     plugins: [react()],
+    resolve: {
+        alias: {
+            '@tabler/icons-react':
+                '@tabler/icons-react/dist/esm/icons/index.mjs',
+        },
+    },
     test: {
         environment: 'jsdom',
         setupFiles: ['./vitest-setup.ts'],

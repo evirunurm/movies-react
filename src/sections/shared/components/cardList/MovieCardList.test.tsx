@@ -1,5 +1,5 @@
 import { MovieView } from '../../../../modules/movies/domain/MovieView.ts'
-import { render } from '@testing-library/react'
+import { render } from '../../../../../test/utils.ts'
 import { MovieCardList } from './MovieCardList.tsx'
 
 describe('MovieView MovieCard List', () => {

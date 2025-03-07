@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render } from '../../../../../test/utils.ts'
 import { MovieCard } from './MovieCard.tsx'
 import { Movie } from '../../../../modules/movies/domain/Movie.ts'
 
