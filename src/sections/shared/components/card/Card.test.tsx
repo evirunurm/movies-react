@@ -13,8 +13,10 @@ describe('Card', () => {
             popularity: 5,
         }
 
-        const { getByText } = render(<Card movie={movie} />)
+        const { getByText, getByAltText } = render(<Card movie={movie} />)
 
         expect(getByText('Inception')).toBeInTheDocument()
+        expect(getByText('☆ 5')).toBeInTheDocument()
+        expect(getByAltText('Inception')).toBeInTheDocument()
     })
 })

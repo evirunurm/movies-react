@@ -1,4 +1,4 @@
-import { CardList } from '../../shared/components/cardList/CardList.tsx'
+import { MovieCardList } from '../../shared/components/cardList/MovieCardList.tsx'
 import { Input } from '../../shared/components/input/Input.tsx'
 import { Section } from '../../shared/components/section/Section.tsx'
 import { Main } from '../../shared/components/main/Main.tsx'
@@ -63,7 +63,7 @@ export function PopularMovies({ repository }: PopularMoviesProps) {
                     callback={loadMoviesAfterIntersection}
                     stopAlert={!areThereMoreMoviesToLoad || isLoading}
                 >
-                    <CardList movies={movies} />
+                    <MovieCardList movies={movies} />
                 </IntersectionAlert>
             </Section>
             <p>{isLoading}</p>

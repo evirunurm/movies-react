@@ -1,14 +1,14 @@
 import { Movie } from '../../../../modules/movies/domain/Movie.ts'
 import { Card } from '../card/Card.tsx'
-import './CardList.css'
+import styles from './MovieCardList.module.css'
 
 type MoviesListProps = {
     movies: Movie[]
 }
 
-export function CardList({ movies }: MoviesListProps) {
+export function MovieCardList({ movies }: MoviesListProps) {
     return (
-        <div className="card-list">
+        <div className={styles['card-list']}>
             {movies.map((movie: Movie) => (
                 <Card key={movie.id} movie={movie} />
             ))}
