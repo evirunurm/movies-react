@@ -7,9 +7,10 @@ export function createApiMovieRepository(): MovieRepository {
     } as MovieRepository
 }
 
-async function getPopular(): Promise<MoviesView> {
+async function getPopular(limit?: number): Promise<MoviesView> {
     const apiUrl = 'http:\\\\localhost:3000/api/movies/popular'
-    const response = await fetch(apiUrl, {
+    const queryParam = limit ? `?limit=${limit}` : ''
+    const response = await fetch(apiUrl + queryParam, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

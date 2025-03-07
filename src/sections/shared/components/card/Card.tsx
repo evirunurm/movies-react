@@ -1,5 +1,5 @@
 import { Movie } from '../../../../modules/movies/domain/Movie.ts'
-import './Card.css'
+import styles from './Card.module.css'
 
 type MovieCardProps = {
     movie: Movie
@@ -7,13 +7,13 @@ type MovieCardProps = {
 
 export function Card({ movie }: MovieCardProps) {
     return (
-        <div className="card">
-            <div className="card__poster">
-                <p className="card__rating">☆ {movie.rating}</p>
+        <div className={styles.card}>
+            <div className={styles.card__poster}>
+                <p className={styles.card__rating}>☆ {movie.rating}</p>
                 <img src={movie.img} alt={movie.title} />
-                <div className="card__heart">♥</div>
+                <div className={styles.card__heart}>♥</div>
             </div>
-            <p className="card__title">{movie.title}</p>
+            <p className={styles.card__title}>{movie.title}</p>
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import React from 'react'
 import { createApiMovieRepository } from './modules/movies/infrastructure/ApiMovieRepository.ts'
 import { MovieRepository } from './modules/movies/domain/MovieRepository.ts'
-import { MoviesContextProvider } from './sections/movies/popularMovies/MoviesContext.tsx'
 import { PopularMovies } from './sections/movies/popularMovies/PopularMovies.tsx'
 import { Nav, MyRoute } from './sections/shared/components/nav/Nav.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router'
@@ -14,26 +13,36 @@ interface ComponentRoute extends MyRoute {
 function App() {
     const moviesRepository: MovieRepository = createApiMovieRepository()
     const routes: ComponentRoute[] = [
-        { route: '/', name: 'Home', component: PopularMovies },
-        { route: '/popular', name: 'Popular', component: PopularMovies },
+        {
+            route: '/',
+            name: 'Home',
+            component: () => (
+                <PopularMovies repository={moviesRepository}></PopularMovies>
+            ),
+        },
+        {
+            route: '/popular',
+            name: 'Popular',
+            component: () => (
+                <PopularMovies repository={moviesRepository}></PopularMovies>
+            ),
+        },
     ]
 
     return (
         <>
-            <MoviesContextProvider repository={moviesRepository}>
-                <BrowserRouter>
-                    <Nav routes={routes} />
-                    <Routes>
-                        {routes.map((route: ComponentRoute, key: number) => (
-                            <Route
-                                key={key}
-                                path={route.route}
-                                element={<route.component />}
-                            />
-                        ))}
-                    </Routes>
-                </BrowserRouter>
-            </MoviesContextProvider>
+            <BrowserRouter>
+                <Nav routes={routes} />
+                <Routes>
+                    {routes.map((route: ComponentRoute, key: number) => (
+                        <Route
+                            key={key}
+                            path={route.route}
+                            element={<route.component />}
+                        />
+                    ))}
+                </Routes>
+            </BrowserRouter>
         </>
     )
 }
